@@ -1,51 +1,36 @@
 import React from 'react';
 import './App.css';
+import {Accordeon} from "./components/Accordeon/Accordeon";
+import {Rating} from "./components/Rating/Rating";
 
 
 function App() {
     return (
         <div>
-            <AppTitle/>
-            <Rating/>
-            <Accordeon/>
-            <Rating/>
+            <PageTitle title={"This is APP component"}/>
+            <PageTitle title={"My friends"}/>
+
+            Article 1
+            <Rating value={3}/>
+            <Accordeon titleValue={"Menu"} collapsed={true}/>
+            <Accordeon titleValue={"Users"} collapsed={false}/>
+            Article 2
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={5}/>
         </div>
     );
 }
 
-function AppTitle() {
-    return <>This is APP component</>
+type PageTitlePropsType = {
+    title: string
 }
 
-function Rating() {
-    return (
-        <div>
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-        </div>
-    )
-}
-
-function Star() {
-    return <div>star</div>
-}
-
-function Accordeon() {
-    return (
-        <div>
-            <h3>Меню</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-            </ul>
-
-        </div>
-    )
+function PageTitle(props: PageTitlePropsType) {
+    return <h1>{props.title}</h1>
 }
 
 export default App;
